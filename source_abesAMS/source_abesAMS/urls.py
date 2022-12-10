@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . views import login_view, logout_view
+from . views import login_view, logout_view, signup_view, timeline_view
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,7 +24,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/',include('user.urls',namespace="user")),
     path('activity/',include('activity.urls',namespace="activity")),
-    path('login-view/',login_view,name="login-view"),
+    path('signup/',signup_view,name="signup-view"),
+    path('login/',login_view,name="login-view"),
+    path('',timeline_view,name="timeline-view"),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

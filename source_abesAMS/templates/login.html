@@ -1,4 +1,78 @@
-{% extends "base.html" %}
-{% block content %}
-	<h2>lohin</h2>
-{% endblock content %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+</head>
+<body>
+		<section class="hero has-background-white-ter is-fullheight" id="login-shadow">
+			<div class="hero-body">
+				<div class="container">
+					<div class="columns is-centered">
+						<div class="column is-5-tablet is-7-desktop is-6-widescreen">
+							<form method="POST" autocomplete="off" class="box">
+								<h3 class="title is-3">Signin</h3>
+								{% csrf_token %}
+								{% if messages %}
+									{% for message in messages %}
+										{% if message.tags == "warning" %}
+											<span class="icon-text has-text-danger">
+											  <span class="icon">
+											    <i class="fas fa-ban"></i>
+											  </span>
+											  <span>{{message}}</span>
+											</span>
+										{% elif message.tags == "success" %}
+											<span class="icon-text has-text-success">
+											  <span class="icon">
+											    <i class="fas fa-check-square"></i>
+											  </span>
+											  <span>{{message}}</span>
+											</span>
+										{% endif %}
+									{% endfor %}
+								{% endif %}
+								<div class="field">
+								  <label class="label">Email</label>
+								  <div class="control has-icons-left">
+								    {{form.email}}
+								    <span class="icon is-small is-left">
+								    	<i class="fa fa-envelope"></i>
+								    </span>
+								  </div>
+								</div>
+								<div class="field">
+								  <label class="label">Password</label>
+								  <div class="control has-icons-left">
+								    {{form.password}}
+								    <span class="icon is-small is-left">
+								    	<i class="fa fa-lock"></i>
+								    </span>
+								  </div>
+								</div>
+								<div class="field is-grouped">
+								  <div class="control">
+								    <input type="submit" class="button is-link" value="Signin">
+								  </div>
+								  <div class="control">
+								    <a class="button is-link is-light" href="{% url 'signup-view' %}">Signup</a>
+								  </div>
+								</div>
+							</form>
+						</div>			
+					</div>
+				</div>
+			</div>
+		</section>
+	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+ 	<!-- <script src="{% static 'js/signin.js' %}"></script> -->
+ 	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</body>
+</html>

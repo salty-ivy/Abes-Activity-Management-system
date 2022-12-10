@@ -1,16 +1,22 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
   </head>
   <body>
+    {% include "_navbar.html" %}
     {% block content %}
     {% endblock content %}
 
     {% block script %}
     {% endblock script %}
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script defer type="text/javascript" src="{% static 'js/navbar.js' %}"></script>
   </body>
 </html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+  </head>
+  <body>
+
+        <section class="hero has-background-white-ter is-fullheight">
+     {% if messages %}
+      {% for message in messages %}
+        <p class="help is-{{ message.tag }}">{{message}}</p>
+      {% endfor %}
+    {% endif %}
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class=" column is-5-tablet is-7desktop is-6-widescreen glass">
+            <form method="POST" autocomplete="off" class="box">
+              <div class="has-text-centered mb-4">
+                <h3 class="title is-3">Signup</h3>
+              </div>
+              {% csrf_token %}
+              <div class="field">
+                <label class="label is-size-5" id="test">Email</label>
+                <div class="control has-icons-left">
+                  {{form.email}}
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                </div>
+                {% if form.email.errors %}
+                 <span class="icon-text has-text-danger">
+                  <span class="icon">
+                    <i class="fas fa-ban"></i>
+                  </span>
+                  <span>{{form.email.errors}}</span>
+                </span>
+              {% endif %}
+              </div>
+
+              <div class="field">
+                <label class="label is-size-5">username</label>
+                <div class="control has-icons-left">
+                  {{form.username}}
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-user"></i>
+                </span>
+
+                </div>
+                {% if form.username.errors %}
+                 <span class="icon-text has-text-danger">
+                  <span class="icon">
+                    <i class="fas fa-ban"></i>
+                  </span>
+                  <span>{{form.username.errors}}</span>
+                </span>
+              {% endif %}
+              </div>
+
+              <div class="field">
+                <label class="label is-size-5">Password</label>
+                <div class="control has-icons-left">
+                  {{form.password}}
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-lock"></i>
+                  </span>
+                </div>
+                {% if form.password.errors %}
+                 <span class="icon-text has-text-danger">
+                  <span class="icon">
+                    <i class="fas fa-ban"></i>
+                  </span>
+                  <span>{{form.password.errors}}</span>
+                </span>
+              {% endif %}
+              </div>
+
+
+              <div class="field">
+                <label class="label is-size-5">Confirm Password</label>
+                <div class="control has-icons-left">
+                  {{form.confirm_password}}
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-lock"></i>
+                  </span>
+                </div>
+                {% if form.confirm_password.errors %}
+                 <span class="icon-text has-text-danger">
+                  <span class="icon">
+                    <i class="fas fa-ban"></i>
+                  </span>
+                  <span>{{form.confirm_password.errors}}</span>
+                </span>
+              {% endif %}
+              </div>
+
+              <div class="field is-grouped">
+                <div class="control">
+                  <input type="submit" class="button is-link" value="Submit">
+                </div>
+                <div class="control">
+                  <a class="button is-link is-light" href="{% url 'login-view' %}">Signin</a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </body>
+</html>
