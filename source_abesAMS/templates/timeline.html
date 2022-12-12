@@ -1,5 +1,39 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block style  %}
+	<link rel="stylesheet" href="{% static 'css/timeline.css' %}">
+{% endblock style %}
 
 {% block content %}
-	
+	<section class="section">
+		<div class="container">
+			<div class="columns is-centered is-multiline card-container ">
+				<div class="column is-one-third">
+					{% include "_task_card.html" %}
+				</div>
+				<div class="column is-one-third">
+					{% include "_task_card.html" %}
+				</div>
+				<div class="column is-one-third">
+					{% include "_task_card.html" %}
+				</div>
+				<div class="column is-one-third">
+					{% include "_task_card.html" %}
+				</div>
+				<div class="column is-one-third">
+					{% include "_task_card.html" %}
+				</div>
+				<div class="column is-one-third">
+					{% include "_task_card.html" %}
+				</div>
+				<div class="column is-one-third">
+					{% include "_task_card.html" %}
+				</div>
+			</div>
+		</div>
+	</section>
 {% endblock content %}
+
+{% block script %}
+{% endblock script %}

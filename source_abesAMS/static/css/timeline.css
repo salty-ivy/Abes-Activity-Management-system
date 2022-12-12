@@ -1,0 +1,24 @@
+.card-effect{
+	/* From https://css.glass */
+	background: rgba(255, 255, 255, 0.27);
+/*	border-radius: 16px;*/
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border: 1px solid rgba(255, 255, 255, 0.81);
+	margin: 10px;
+
+}
+
+@keyframes increase {
+	0% {	background: rgba(255, 255, 255, 0.27);}
+	100% {	
+		box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+		transform: scale(1.1,1.1);
+	}
+}
+.card-effect:hover{
+	animation-name:increase;
+	animation-duration:0.2s;
+	animation-fill-mode: forwards;
+}
